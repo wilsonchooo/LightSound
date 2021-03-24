@@ -4,9 +4,9 @@
 
 Submitted by: **Wilson Cho**
 
-Time spent: **4** hours spent in total
+Time spent: **7** hours spent in total
 
-Link to project: (insert your link here, should start with https://glitch.com...)
+Link to project: (https://glitch.com/edit/#!/lightsound)
 
 ## Required Functionality
 
