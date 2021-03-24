@@ -19,19 +19,36 @@
     <p>
       Welcome to the light and sound game. Repeat back the pattern by pressing buttons in order.
     </p>
-    
     <button id="startBtn" onclick="startGame()">Start</button>
     <button id="stopBtn" class="hidden" onclick="stopGame()">Stop</button>
     
+    <audio src="https://cdn.glitch.com/8e4ea2d6-de19-4fb7-bbb0-9ca0dc8155d1%2Fcoin.mp3?v=1616605977028" id="myAudio"></audio>
+  
     <div id="gameButtonArea">
-      <button id ="button1" onclick="guess(1)" onmousedown="startTone(1)" onmouseup="stopTone()" ></button>
-      <button id ="button2" onclick="guess(2)" onmousedown="startTone(2)" onmouseup="stopTone()"></button>
-      <button id ="button3" onclick="guess(3)" onmousedown="startTone(3)" onmouseup="stopTone()"></button>
-      <button id ="button4" onclick="guess(4)" onmousedown="startTone(4)" onmouseup="stopTone()"></button>
+      
+      <button id ="button1" onclick="guess(1)" onmousedown="playsound(1)" onmouseup="stopimage(1)">
+      <img src="https://cdn.glitch.com/8e4ea2d6-de19-4fb7-bbb0-9ca0dc8155d1%2Fsmile.png?v=1616610615352" id="pic1" style="display: none;"/>
+      </button>
+      <button id ="button2" onclick="guess(2)" onmousedown="playsound(2)" onmouseup="stopimage(2)">
+        <img src="https://cdn.glitch.com/8e4ea2d6-de19-4fb7-bbb0-9ca0dc8155d1%2Fsmile.png?v=1616610615352" id="pic2" style="display: none;"/>
+      </button>
+      
+      <button id ="button3" onclick="guess(3)" onmousedown="playsound(3)" onmouseup="stopimage(3)">
+        <img src="https://cdn.glitch.com/8e4ea2d6-de19-4fb7-bbb0-9ca0dc8155d1%2Fsmile.png?v=1616610615352" id="pic3" style="display: none;"/>
+      </button>
+      <button id ="button4" onclick="guess(4)" onmousedown="playsound(4)" onmouseup="stopimage(4)">
+        <img src="https://cdn.glitch.com/8e4ea2d6-de19-4fb7-bbb0-9ca0dc8155d1%2Fsmile.png?v=1616610615352" id="pic4" style="display: none;"/>
+      </button>
+      <button id ="button5" onclick="guess(5)" onmousedown="playsound(5)" onmouseup="stopimage(5)">
+        <img src="https://cdn.glitch.com/8e4ea2d6-de19-4fb7-bbb0-9ca0dc8155d1%2Fsmile.png?v=1616610615352" id="pic5" style="display: none;"/>
+      </button>
+      <button id ="button6" onclick="guess(6)" onmousedown="playsound(6)" onmouseup="stopimage(6)">
+        <img src="https://cdn.glitch.com/8e4ea2d6-de19-4fb7-bbb0-9ca0dc8155d1%2Fsmile.png?v=1616610615352" id="pic6" style="display: none;"/>
+      </button>
     </div>
     
     <p id="Timer">Timer</p>
-
+    <p id="mistakecount">Mistakes: 0</p>
 
 
   </body>
