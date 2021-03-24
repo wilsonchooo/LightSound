@@ -13,12 +13,15 @@ var guessCounter = 0;
 var clueHoldTime = 1000; //how long to hold each clue's light/sound
 var timeleft =20;
 var x;
+var mistakemax =3;
+var mistakes;
 
 function startGame() {
   //initialize game variables
   timeleft =20;
   progress = 0;
   gamePlaying = true;
+  mistakes =0;
   setRandom()
   // swap the Start and Stop buttons
   document.getElementById("startBtn").classList.add("hidden");
@@ -39,7 +42,9 @@ const freqMap = {
   1: 261.6,
   2: 329.6,
   3: 392,
-  4: 466.2
+  4: 466.2,
+  5: 500,
+  6: 550
 };
 function playTone(btn, len) {
   o.frequency.value = freqMap[btn];
@@ -59,6 +64,21 @@ function startTone(btn) {
 function stopTone() {
   g.gain.setTargetAtTime(0, context.currentTime + 0.05, 0.025);
   tonePlaying = false;
+}
+
+function playsound(btn)
+{
+  var temp="";
+  temp = "pic" + btn;
+  document.getElementById('myAudio').play();
+  document.getElementById(temp).style.display = "inline-block";
+}
+
+function stopimage(btn)
+{
+  var temp="";
+  temp = "pic" + btn;
+  document.getElementById(temp).style.display = "none";
 }
 
 //Page Initialization
@@ -103,6 +123,7 @@ function playClueSequence() {
 
 
 function loseGame() {
+  clearInterval(x);
   stopGame();
   alert("Game Over. You lost.");
 }
@@ -116,6 +137,7 @@ function guess(btn) {
   //console.log("user guessed: " + btn);
   if (!gamePlaying) {
     return;
+    
   }
 
   timeleft=20;
@@ -132,15 +154,23 @@ function guess(btn) {
             console.log("this is guesscounter:" + guessCounter);
       }
 
-  } else loseGame();
-  
+  } else 
+    {
+      mistakes++;
+      document.getElementById("mistakecount").innerHTML = "Mistakes: " + mistakes;
+      if(mistakes>=3)
+      {
+        loseGame();
+      }
+
+    }
 }
 
 
 function setRandom(){
   for(var i=0;i<pattern.length;i++)
     {
-      pattern[i]=Math.floor((Math.random() * 4)+1);
+      pattern[i]=Math.floor((Math.random() * 6)+1);
       console.log(pattern[i])
     }
 }
@@ -154,7 +184,7 @@ function starttimer(){
           loseGame();
           clearInterval(x);
           document.getElementById("Timer").innerHTML = "Out of time";
-          
+          return;
         }
 
   document.getElementById("Timer").innerHTML = ""+timeleft

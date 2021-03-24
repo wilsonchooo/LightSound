@@ -16,7 +16,8 @@ h1 {
 
 button{
   padding: 10px;
-border-radius: 10px;
+  border-radius: 10px;
+  background-size: 100%
 }
 
 #gameButtonArea > button {
@@ -44,6 +45,12 @@ border-radius: 10px;
 #button4 {
     background: lightyellow;
 }
+#button5 {
+    background: khaki;
+}
+#button6 {
+    background: olivedrab;
+}
 
 #button1:active, #button1.lit {
     background:green;
@@ -58,3 +65,13 @@ border-radius: 10px;
 #button4:active, #button4.lit {
     background:yellow;
 }
+
+#button5:active, #button5.lit {
+    background:GoldenRod;
+}
+
+#button6:active, #button6.lit {
+  background:Olive;
+}
+
+  background-image:url(https://cdn.glitch.com/8e4ea2d6-de19-4fb7-bbb0-9ca0dc8155d1%2Fsmall%20smile.png?v=1616609945270);
